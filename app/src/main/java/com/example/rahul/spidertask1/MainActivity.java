@@ -118,20 +118,28 @@ public class MainActivity extends AppCompatActivity {
             i++;
             flag = true;
         }
+        else
+            Toast.makeText(getApplicationContext(), "Please Enter Task", Toast.LENGTH_LONG).show();
     }
 
     public void removeItems()
     {
+        if(E2.getText().toString().length() > 0)
+        {
         if(i>=1) {
             pos = Integer.parseInt(E2.getText().toString());
-            if (pos <= i && pos>0) {
-                for (j = pos-1; str[j + 1] != "%"; j++) {
+            if (pos <= i && pos > 0) {
+                for (j = pos - 1; str[j + 1] != "%"; j++) {
                     str[j] = str[j + 1];
                 }
                 i--;
-                flag=true;
+                flag = true;
             } else
                 Toast.makeText(getApplicationContext(), "No item at the specified position", Toast.LENGTH_LONG).show();
+        }
+        else
+            Toast.makeText(getApplicationContext(), "No item at the specified position", Toast.LENGTH_LONG).show();
+
         }
         else
             Toast.makeText(getApplicationContext(), "No item at the specified position", Toast.LENGTH_LONG).show();
