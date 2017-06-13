@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/black"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.rahul.spidertask1.Main2Activity"
@@ -14,7 +14,7 @@
 
 
     <TextView
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="75dp"
         android:text="Work"
         android:gravity="center"
