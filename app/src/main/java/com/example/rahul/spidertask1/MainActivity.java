@@ -13,13 +13,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    ListView L1,L2;
+    ListView L1;
     EditText E1,E2;
     Button addB,removeB;
     int i=0,pos,j;
     String task;
     String[] str = new String[10000];
-    int[] nos = new int[10000];
     boolean flag=false;
 
 
@@ -33,17 +32,13 @@ public class MainActivity extends AppCompatActivity {
         addB=(Button)findViewById(R.id.add);
         removeB=(Button)findViewById(R.id.remove);
         L1 = (ListView)findViewById(R.id.list);
-        L2 = (ListView)findViewById(R.id.list1);
 
 
         for(j=0;j<10000;j++)
         {
             str[j]="%";
         }
-        for(j=0;j<10000;j++)
-        {
-            nos[j]=0;
-        }
+
 
 
         addB.setOnClickListener(new View.OnClickListener() {
@@ -92,18 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        L2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent= new Intent(MainActivity.this, Main2Activity.class);
-                intent.putExtra("item",str[position]);
-                startActivity(intent);
-
-
-
-            }
-        });
 
 
     }
@@ -114,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
         task=E1.getText().toString();
         if(task.length()>0) {
             str[i] = task;
-            nos[i]=i+1;
             i++;
             flag = true;
         }
@@ -152,16 +134,13 @@ public class MainActivity extends AppCompatActivity {
     {
         if(i>=1 && flag) {
             String[] S1 = new String[i];
-            String[] no = new String[i];
             for (j = 0; j < i; j++) {
-                S1[j] = str[j];
-                no[j]=Integer.toString(j+1)+")";
+
+                S1[j]=Integer.toString(j+1)+") "+str[j];
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.item_list, S1);
-            ArrayAdapter<String> adap = new ArrayAdapter<String>(this,R.layout.item_list,no);
 
             L1.setAdapter(adapter);
-            L2.setAdapter(adap);
 
             flag=false;
         }
@@ -169,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
             if(i==0)
             {
                 L1.setAdapter(null);
-                L2.setAdapter(null);
             }
 
     }

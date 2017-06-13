@@ -36,16 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="2">
-            <ListView
-                android:id="@+id/list1"
-                android:layout_weight="1.8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            >
 
-            </ListView>
             <ListView
-                android:layout_weight="0.2"
                 android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
